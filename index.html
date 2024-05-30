@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link href="/src/output.css" rel="stylesheet" />
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style> -->
+  </head>
+  <body
+    class="bg-[hsl(216,12%,8%)] text-white flex items-center justify-center min-h-screen"
+  >
+    <!-- Rating state start -->
+    <!-- main card -->
+    <div
+      id="main-card"
+      class="w-[350px] flex flex-col gap-4 bg-[hsl(213,19%,18%)] rounded-2xl p-6"
+    >
+      <div
+        class="size-8 bg-zinc-600 rounded-full flex items-center justify-center"
+      >
+        <img class="size-4" src="/images/icon-star.svg" alt="star" />
+      </div>
+
+      <section class="flex flex-col gap-2.5">
+        <h2 class="text-2xl font-semibold">How did we do?</h2>
+        <p class="text-sm text-[hsl(217,12%,63%)]">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+      </section>
+
+      <section class="flex gap-2 justify-between">
+        <div
+          id="rating-1"
+          class="size-10 text-sm flex items-center justify-center bg-zinc-600 rounded-full hover:bg-orange-400 hover:text-black cursor-pointer"
+        >
+          1
+        </div>
+        <div
+          id="rating-2"
+          class="size-10 text-sm flex items-center justify-center bg-zinc-600 rounded-full hover:bg-orange-400 hover:text-black cursor-pointer"
+        >
+          2
+        </div>
+        <div
+          id="rating-3"
+          class="size-10 text-sm flex items-center justify-center bg-zinc-600 rounded-full hover:bg-orange-400 hover:text-black cursor-pointer"
+        >
+          3
+        </div>
+        <div
+          id="rating-4"
+          class="size-10 text-sm flex items-center justify-center bg-zinc-600 rounded-full hover:bg-orange-400 hover:text-black cursor-pointer"
+        >
+          4
+        </div>
+        <div
+          id="rating-5"
+          class="size-10 text-sm flex items-center justify-center bg-zinc-600 rounded-full hover:bg-orange-400 hover:text-black cursor-pointer"
+        >
+          5
+        </div>
+      </section>
+
+      <button
+        id="submit"
+        class="capitalize w-full rounded-3xl h-8 py-1 bg-orange-400 hover:bg-white text-black font-medium"
+      >
+        Submit
+      </button>
+    </div>
+
+    <!-- thank you section -->
+    <div
+      id="thank-you"
+      class="w-[350px] flex-col gap-4 bg-[hsl(213,19%,18%)] rounded-2xl p-6 hidden"
+    >
+      <img
+        class="w-32 mx-auto"
+        src="/images/illustration-thank-you.svg"
+        alt="illustration-thank-you"
+      />
+      <div
+        class="text-center text-xs text-orange-400 px-4 py-1 bg-zinc-600 w-fit rounded-full mx-auto flex gap-1"
+      >
+        <span>You selected</span> <span id="rating-value">{' '} 0</span>
+        <span>out of 5</span>
+      </div>
+
+      <section class="flex flex-col gap-2.5 text-center">
+        <h2 class="text-2xl font-semibold">Thank you!</h2>
+        <p class="text-sm text-[hsl(217,12%,63%)]">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+      </section>
+    </div>
+
+    <script>
+      let rating = null;
+      const ratingBtn1 = document.getElementById("rating-1");
+      const ratingBtn2 = document.getElementById("rating-2");
+      const ratingBtn3 = document.getElementById("rating-3");
+      const ratingBtn4 = document.getElementById("rating-4");
+      const ratingBtn5 = document.getElementById("rating-5");
+      const submitBtn = document.getElementById("submit");
+      const ratingValue = document.getElementById("rating-value");
+      ratingBtn1.addEventListener("click", () => {
+        rating = 1;
+        console.log(rating);
+      });
+      ratingBtn2.addEventListener("click", () => {
+        rating = 2;
+        console.log(rating);
+      });
+      ratingBtn3.addEventListener("click", () => {
+        rating = 3;
+        console.log(rating);
+      });
+      ratingBtn4.addEventListener("click", () => {
+        rating = 4;
+        console.log(rating);
+      });
+      ratingBtn5.addEventListener("click", () => {
+        rating = 5;
+        console.log(rating);
+      });
+
+      submitBtn.addEventListener("click", () => {
+        ratingValue.textContent = rating;
+        document.getElementById("main-card").classList.add("hidden");
+        document.getElementById("main-card").classList.remove("flex");
+        // remove flex
+        document.getElementById("thank-you").classList.remove("hidden");
+        document.getElementById("thank-you").classList.add("flex");
+        console.log(rating);
+      });
+    </script>
+  </body>
+</html>
